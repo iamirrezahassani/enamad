@@ -24,11 +24,7 @@ if not os.path.exists(file_name):
 for page in range(1, TOTAL_PAGES + 1):
     url = f"https://enamad.ir/DomainListForMIMT/Index/{page}"
     try:
-        proxies = {
-    'http': 'http://your_proxy:port',
-    'https': 'https://your_proxy:port',
-}
-        response = requests.get(url, headers=headers, timeout=10, proxies=proxies)
+        response = requests.get(url, headers=headers, timeout=10)
         response.raise_for_status()  # بررسی وضعیت پاسخ
         soup = BeautifulSoup(response.text, 'html.parser')
 
